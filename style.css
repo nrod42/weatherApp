@@ -1,0 +1,144 @@
+@font-face {
+    font-family: 'poppins';
+    src: url('./fonts/Poppins-Regular.ttf') format('truetype');
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins', sans-serif;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+body {
+   background-repeat:no-repeat;
+   background-size:cover;
+}
+
+.mainWrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mainWrapper > * {
+    padding: 20px 0;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: springgreen;
+    transition: 0.2s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: red;
+    transition: 0.2s;
+}
+
+input:checked + .slider {
+    background-color: darkblue;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px darkblue;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.tempSwitch {
+    color: white;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.searchWrapper input, .searchWrapper button{
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+}
+
+.searchWrapper button{
+    cursor: pointer;
+}
+
+.searchWrapper button:hover{
+    filter: brightness(85%);
+}
+
+.locationHeading {
+    color: white;
+    text-align: center;
+}
+
+.tempInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cardWrapper {
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    width: 300px;
+    border-radius: 10px;
+    color: white;
+    background-color: royalblue;
+}
+
+.cardWrapper > *:nth-child(2) {
+    font-size: 45px;
+}
+
+h2, p {
+    padding: 5px;
+}
