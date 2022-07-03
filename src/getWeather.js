@@ -6,7 +6,7 @@ function getWeather(location, unit) {
   const tempInfo = document.querySelector('.tempInfo');
   if (!location) return;
   fetch(
-    `http://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=f46fb1cd5788b8eb6ce7708fb28aa589&units=${unit}`,
+    `https://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=f46fb1cd5788b8eb6ce7708fb28aa589&units=${unit}`,
     { mode: 'cors' },
   )
     .then((response) => {
