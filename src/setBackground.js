@@ -1,6 +1,4 @@
 import getTime from './getTime';
-import './style.css';
-
 
 function setBackground(response) {
   const body = document.querySelector('body');
