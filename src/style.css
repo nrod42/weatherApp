@@ -137,7 +137,7 @@ input:checked + .slider:before {
   background-color: royalblue;
 }
 
-.cardWrapper > *:nth-child(2) {
+.cardWrapper > *:nth-child(4) {
   font-size: 45px;
 }
 

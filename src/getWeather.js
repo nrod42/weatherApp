@@ -12,9 +12,9 @@ function getWeather(location, unit) {
     .then((response) => {
       return response.json();
     })
-    .then((response) => {
+    .then(async (response) => {
       locationHeading.textContent = response.name;
-      const card = singleDayCard(response, unit);
+      const card = await singleDayCard(response, unit);
       tempInfo.appendChild(card);
       setBackground(response);
     })

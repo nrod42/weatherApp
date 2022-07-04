@@ -11,8 +11,6 @@ function singleDayCard(response, defaultUnit) {
   cardTitle.textContent = 'Today';
   cardWrapper.appendChild(cardTitle);
 
-  getIcon(response, cardWrapper);
-
   const temp = document.createElement('p');
   const feelsLike = document.createElement('p');
   const hiLo = document.createElement('p');
@@ -21,8 +19,14 @@ function singleDayCard(response, defaultUnit) {
   const windSpeed = document.createElement('p');
   const weatherDesc = document.createElement('p');
 
-  let tempUnit;
-  defaultUnit === 'imperial' ? (tempUnit = 'F') : (tempUnit = 'C');
+  let tempUnit, windSpeedUnit;
+  if (defaultUnit === 'imperial') {
+    tempUnit = 'F';
+    windSpeedUnit = 'mph'
+  } else {
+    tempUnit = 'C';
+    windSpeedUnit = 'm/s'
+  }
 
   temp.textContent = `${Math.round(response.main.temp)} \u00B0${tempUnit}`;
   feelsLike.textContent = `Feels Like: ${Math.round(response.main.feels_like)} \u00B0${tempUnit}`;
@@ -31,16 +35,17 @@ function singleDayCard(response, defaultUnit) {
   )} \u00B0${tempUnit}`;
   humidity.textContent = `Humidity: ${response.main.humidity}%`;
   pressure.textContent = `Pressure: ${response.main.pressure} hPa`;
-  windSpeed.textContent = `Wind Speed: ${response.wind.speed}`;
+  windSpeed.textContent = `Wind Speed: ${response.wind.speed} ${windSpeedUnit}`;
   weatherDesc.textContent = `${response.weather[0].description}`;
 
+  cardWrapper.appendChild(weatherDesc);
+  cardWrapper.appendChild(getIcon(response));
   cardWrapper.appendChild(temp);
   cardWrapper.appendChild(feelsLike);
   cardWrapper.appendChild(hiLo);
   cardWrapper.appendChild(humidity);
   cardWrapper.appendChild(pressure);
   cardWrapper.appendChild(windSpeed);
-  cardWrapper.appendChild(weatherDesc);
 
   return cardWrapper;
 }
