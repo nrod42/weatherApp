@@ -9,12 +9,10 @@ function getWeather(location, unit) {
     `https://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=f46fb1cd5788b8eb6ce7708fb28aa589&units=${unit}`,
     { mode: 'cors' },
   )
+    .then((response) => response.json())
     .then((response) => {
-      return response.json();
-    })
-    .then(async (response) => {
       locationHeading.textContent = response.name;
-      const card = await singleDayCard(response, unit);
+      const card = singleDayCard(response, unit);
       tempInfo.appendChild(card);
       setBackground(response);
     })

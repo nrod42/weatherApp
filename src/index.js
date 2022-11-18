@@ -23,6 +23,6 @@ search.addEventListener('keydown', (e) => {
 });
 
 slider.addEventListener('change', () => {
-  slider.checked ? (defaultUnit = 'metric') : (defaultUnit = 'imperial');
+  defaultUnit = slider.checked ? 'metric' : 'imperial';
   getWeather(currentLocation, defaultUnit);
 });

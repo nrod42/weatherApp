@@ -19,13 +19,15 @@ function singleDayCard(response, defaultUnit) {
   const windSpeed = document.createElement('p');
   const weatherDesc = document.createElement('p');
 
-  let tempUnit, windSpeedUnit;
+  let tempUnit;
+  let windSpeedUnit;
+
   if (defaultUnit === 'imperial') {
     tempUnit = 'F';
-    windSpeedUnit = 'mph'
+    windSpeedUnit = 'mph';
   } else {
     tempUnit = 'C';
-    windSpeedUnit = 'm/s'
+    windSpeedUnit = 'm/s';
   }
 
   temp.textContent = `${Math.round(response.main.temp)} \u00B0${tempUnit}`;
